@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Sprawdzanie hasła</title>
+    <style>
+        p {
+            color: red;
+        }
+    </style>
+    <script>
+        function myFunction() {
+            let x = document.getElementById("inputPassword");
+            if (x.value.length < 8){
+                document.getElementById("password").innerHTML = "Za krótkie hasło. Min 8 znaków"
+            } else {
+                document.getElementById("password").innerHTML = ""
+            }
+            if(/[A-Z]/.test(x.value)){
+                document.getElementById("upperCase").innerHTML = ""
+            } else {
+                document.getElementById("upperCase").innerHTML = "Musi zawierać jedną dużą literę"
+            }
+            if(/[a-z]/.test(x.value)){
+                document.getElementById("lowerCase").innerHTML = ""
+            } else {
+                document.getElementById("lowerCase").innerHTML = "Musi zawierać jedną małą literę"
+            }
+            if(/[!@#$%^&]/.test(x.value)){
+                document.getElementById("sign").innerHTML = ""
+            } else {
+                document.getElementById("sign").innerHTML = "Musi zawierać jeden znak specjalny"
+            }
+            checkPassword ();
+        }
+
+        function checkPassword (){
+            let x = document.getElementById("inputPassword")
+            let y = document.getElementById("repeatPassword")
+            if(y.value === x.value){
+                document.getElementById("repeatDescription").innerHTML = ""
+            } else {
+                document.getElementById("repeatDescription").innerHTML = "Hasła różnią się od siebie!"
+            }
+        }
+        </script>
+
+</head>
+<body>
+    <div style="margin-left: 200px; margin-top: 200px;">
+        <label for="inputPassword">Hasło</label> <br>
+        <input type="password" id="inputPassword" onkeyup="myFunction()">
+        <p id="password"></p>
+        <p id="upperCase"></p>
+        <p id="lowerCase"></p>
+        <p id="sign"></p>
+        <label for="repeatPassword">Powtórz hasło</label> <br>
+        <input type="password" id="repeatPassword" onkeyup="myFunction()">
+        <p id="repeatDescription"></p>
+    </div>
+</body>
+</html>
