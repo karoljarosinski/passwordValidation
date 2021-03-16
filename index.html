@@ -9,7 +9,7 @@
         }
     </style>
     <script>
-        function myFunction() {
+        function passwordValidation() {
             let x = document.getElementById("inputPassword");
             if (x.value.length < 8){
                 document.getElementById("password").innerHTML = "Za krótkie hasło. Min 8 znaków"
@@ -49,13 +49,13 @@
 <body>
     <div style="margin-left: 200px; margin-top: 200px;">
         <label for="inputPassword">Hasło</label> <br>
-        <input type="password" id="inputPassword" onkeyup="myFunction()">
+        <input type="password" id="inputPassword" onkeyup="passwordValidation()">
         <p id="password"></p>
         <p id="upperCase"></p>
         <p id="lowerCase"></p>
         <p id="sign"></p>
         <label for="repeatPassword">Powtórz hasło</label> <br>
-        <input type="password" id="repeatPassword" onkeyup="myFunction()">
+        <input type="password" id="repeatPassword" onkeyup="passwordValidation()">
         <p id="repeatDescription"></p>
     </div>
 </body>
